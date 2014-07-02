@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>BasicDOM QUnit Tests</title>
+        <link rel="stylesheet" href="resources/qunit.css" />
+        
+        
+        <script src="resources/qunit.js"></script>
+
+        <script src="https://raw.githubusercontent.com/AeonDigital/Code-Craft-js_BasicTools/master/BasicTools.js"></script>
+        <script src="../BasicDOM.js"></script>
+    </head>
+    <body>
+        <div id="qunit"></div>
+        <div id="qunit-fixture"></div>
+
+        <section id="nodeTeste" style="display: block;">
+            <ul id="ul01">
+                <li id="item101">Ul 1 ; Item 01</li>
+                <li id="item102" class="gthis">Ul 1 ; Item 02</li>
+                <li id="item103">Ul 1 ; Item 03</li>
+                <li id="item104" class="gthis">Ul 1 ; Item 04</li>
+                <li id="item105">Ul 1 ; Item 05</li>
+                <li id="item106" class="foo">Ul 1 ; Item 06</li>
+                <li id="item107" class="gthis foo">Ul 1 ; Item 07</li>
+            </ul>
+            <ul id="ul02">
+                <li id="item201">Ul 2 ; Item 01</li>
+                <li id="item202">Ul 2 ; Item 02</li>
+                <li id="item203">Ul 2 ; Item 03</li>
+                <li id="item204">Ul 2 ; Item 04</li>
+                <li id="item205">Ul 2 ; Item 05</li>
+                <li id="item206">Ul 2 ; Item 06</li>
+                <li id="item207" data-attr="teste">Ul 2 ; Item 07</li>
+            </ul>
+        </section>
+
+
+        <script>
+            // <![CDATA[
+
+            module('Manipuladores de elementos DOM');
+
+
+
+
+
+            test('Get', function () {
+                var Get = CodeCraft.BasicDOM.Get;
+
+                var secDOM = document.querySelectorAll('section');
+                var sect = document.querySelectorAll('section');
+                notEqual(sect, secDOM, 'Importante Saber!');
+
+
+                // Identificação de um Node por seu ID
+                secDOM = document.getElementById('nodeTeste');
+                sect = Get('#nodeTeste');
+                equal(sect, secDOM, '');
+
+
+                // Get LIs dentro de uma determinada Lista.
+                var LIParent = document.getElementById('ul01');
+                var LIList = Get('#ul01 li');
+                var allLIs = Get('section li');
+                equal(LIList.length, 7, '');
+                equal(LIList[0].parentNode, LIParent, '');
+
+
+                // Confirma que o get mais abrangente pegou todos os LIs
+                equal(allLIs.length, 14, '');
+
+
+                // Confirma que um get vazio retorna null
+                var NotFound = Get('fieldset div');
+                equal(NotFound, null, '');
+
+
+                // Confirma get dentro de um node previamente resgatado
+                var gthisLIs = Get('.gthis', LIParent);
+                equal(gthisLIs.length, 3, '');
+            });
+
+
+
+
+
+            test('Set', function () {
+                var Get = CodeCraft.BasicDOM.Get;
+                var Set = CodeCraft.BasicDOM.Set;
+
+                var pNode = Get('#nodeTeste');
+
+                eConfig = {
+                    node: pNode,
+                    attr: {
+                        'lang': 'pt-BR',
+                        'title': 'teste'
+                    },
+                    prop: {
+                        'borderBottom': '1px solid #333',
+                        'textAlign': 'right'
+                    },
+                    event: {
+                        'mouseover': function (o) { var o = o.target; o.style.backgroundColor = '#f8f8f8'; },
+                        'mouseout': function (o) { var o = o.target; o.style.backgroundColor = '#ffffff'; },
+                        'click': function (o) { var o = o.target; alert(o.innerHTML); }
+                    }
+                }
+
+
+                Set('li', eConfig);
+
+                var firstLI = Get('li', pNode)[0];
+                ok(firstLI.hasAttribute('lang'), '');
+                equal(firstLI.lang, 'pt-BR');
+
+            });
+
+
+
+
+
+
+
+
+
+
+            module('Manipuladores de classes');
+
+
+
+
+            
+            test('HasClass', function () {
+                var Get = CodeCraft.BasicDOM.Get;
+                var HasClass = CodeCraft.BasicDOM.HasClass;
+
+
+                var LIList = Get('#ul01 li');
+
+                ok(!HasClass(LIList[0], 'gthis'), '');
+                ok(HasClass(LIList[1], 'gthis'), '');
+                ok(!HasClass(LIList[2], 'gthis'), '');
+                ok(HasClass(LIList[3], 'gthis'), '');
+                ok(!HasClass(LIList[4], 'gthis'), '');
+                ok(!HasClass(LIList[5], 'gthis'), '');
+                ok(HasClass(LIList[6], 'gthis'), '');
+            });
+
+
+
+
+
+            test('SetClass', function () {
+                var Get = CodeCraft.BasicDOM.Get;
+                var SetClass = CodeCraft.BasicDOM.SetClass;
+
+                var ULList = Get('#ul01');
+
+                // Adiciona classe usando string
+                SetClass(ULList, 'class1', null);
+                equal(ULList.className, 'class1', '');
+
+
+                // Remove classe usando string
+                SetClass(ULList, null, 'class1');
+                equal(ULList.className, '', '');
+
+
+                // Adiciona classe usando array
+                SetClass(ULList, ['class1', 'class2'], '');
+                equal(ULList.className, 'class1 class2', '');
+
+
+                // Remove classe usando array
+                SetClass(ULList, '', ['class1']);
+                equal(ULList.className, 'class2', '');
+
+            });
+
+
+
+
+
+
+
+
+
+
+            module('Manipuladores de atributos');
+
+
+
+
+            
+            test('HasAttr', function () {
+                var Get = CodeCraft.BasicDOM.Get;
+                var HasClass = CodeCraft.BasicDOM.HasAttr;
+
+
+                var LIList = Get('#ul01 li');
+
+                ok(!HasClass(LIList[0], 'gthis'), '');
+                ok(HasClass(LIList[1], 'gthis'), '');
+                ok(!HasClass(LIList[2], 'gthis'), '');
+                ok(HasClass(LIList[3], 'gthis'), '');
+                ok(!HasClass(LIList[4], 'gthis'), '');
+                ok(!HasClass(LIList[5], 'gthis'), '');
+                ok(HasClass(LIList[6], 'gthis'), '');
+            });
+            
+
+
+            // ]]>
+        </script>
+    </body>
+</html>
