@@ -29,7 +29,7 @@
 * @type {Class}
 */
 var BasicDOM = function () {
-    var _p = CodeCraft.BasicTools;
+    var _bt = CodeCraft.BasicTools;
 
 
 
@@ -89,10 +89,10 @@ var BasicDOM = function () {
             var o = (n === undefined) ? document.querySelectorAll(s) : n.querySelectorAll(s);
 
             var l = o.length;
-            switch(l) {
+            switch (l) {
                 case 0:
                     return null;
-                
+
                     break;
                 case 1:
                     var sp = s.split(' ');
@@ -187,6 +187,7 @@ var BasicDOM = function () {
             for (var i in sC) {
                 if (sC[i] == c) { return true; }
             }
+
             return false;
         },
 
@@ -214,7 +215,7 @@ var BasicDOM = function () {
 
             for (var i in allC) {
                 var rm = false;
-                var c = _p.Trim(allC[i]);
+                var c = _bt.Trim(allC[i]);
 
 
                 if (c != '') {
@@ -285,9 +286,9 @@ var BasicDOM = function () {
         GetClass: function (n) {
             var aR = [];
             if (n.hasAttribute('class')) {
-                var sp = _p.Trim(n.className).split(' ');
+                var sp = _bt.Trim(n.className).split(' ');
                 for (var cl in sp) {
-                    var c = _p.Trim(sp[cl]);
+                    var c = _bt.Trim(sp[cl]);
                     if (c != '') { aR.push(c); }
                 }
             }
@@ -398,7 +399,7 @@ var BasicDOM = function () {
         * @return {Boolean}
         */
         GetBooleanAttr: function (n, a, d) {
-            return _p.TryParse.ToBoolean(p.GetAttr(n, a, d));
+            return _bt.TryParse.ToBoolean(p.GetAttr(n, a, d));
         },
 
 
@@ -701,7 +702,7 @@ var BasicDOM = function () {
                                     if (v === null) {
                                         el.removeAttribute(attr);
                                     }
-                                    else if (_p.TypeOf(v) === '[object String]') {
+                                    else if (_bt.TypeOf(v) === '[object String]') {
                                         el.setAttribute(attr, v);
                                     }
                                     else {
@@ -775,9 +776,9 @@ var BasicDOM = function () {
             return pp;
         })
 
-        
+
     };
-    
+
 
 
 

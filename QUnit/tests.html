@@ -182,37 +182,6 @@
 
 
 
-
-
-
-
-
-
-
-            module('Manipuladores de atributos');
-
-
-
-
-            
-            test('HasAttr', function () {
-                var Get = CodeCraft.BasicDOM.Get;
-                var HasClass = CodeCraft.BasicDOM.HasAttr;
-
-
-                var LIList = Get('#ul01 li');
-
-                ok(!HasClass(LIList[0], 'gthis'), '');
-                ok(HasClass(LIList[1], 'gthis'), '');
-                ok(!HasClass(LIList[2], 'gthis'), '');
-                ok(HasClass(LIList[3], 'gthis'), '');
-                ok(!HasClass(LIList[4], 'gthis'), '');
-                ok(!HasClass(LIList[5], 'gthis'), '');
-                ok(HasClass(LIList[6], 'gthis'), '');
-            });
-            
-
-
             // ]]>
         </script>
     </body>
