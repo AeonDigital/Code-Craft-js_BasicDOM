@@ -310,60 +310,6 @@ var BasicDOM = function () {
 
 
         /**
-        * Verifica se o node possui o atributo indicado.
-        * 
-        * @function HasAttr
-        *
-        * @memberof BasicDOM
-        *
-        * @param {Node}             n           Elemento que será verificado.
-        * @param {String}           a           Nome do atributo.
-        *
-        * @return {Boolean}
-        */
-        HasAttr: function (n, c) {
-            return n.hasAttribute(c);
-        },
-
-
-
-        /**
-        * Seta o atributo indicado no node alvo.
-        * 
-        * @function SetAttr
-        *
-        * @memberof BasicDOM
-        *
-        * @param {Node}             n           Elemento que será verificado.
-        * @param {String}           a           Nome do atributo.
-        * @param {String}           v           Valor do atributo.
-        *
-        * @return {Boolean}
-        */
-        SetAttr: function (n, c, v) {
-            return n.setAttribute(c, v);
-        },
-
-
-
-        /**
-        * Remove o atributo indicado do node alvo.
-        * 
-        * @function RemoveAttr
-        *
-        * @memberof BasicDOM
-        *
-        * @param {Node}             n           Elemento que será verificado.
-        * @param {String}           a           Nome do atributo.
-        *
-        * @return {Boolean}
-        */
-        RemoveAttr: function (n, c) {
-            return n.removeAttribute(c);
-        },
-
-
-        /**
         * Retorna o valor do atributo de um elemento.
         * Caso não o encontre, retorna o valor padrão definido.
         * 
