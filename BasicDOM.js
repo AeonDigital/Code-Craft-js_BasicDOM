@@ -324,7 +324,7 @@ var BasicDOM = function () {
         * @return {String}
         */
         GetAttr: function (n, a, d) {
-            return (n.hasAttribute[a]) ? n.attributes[a].value.toString() : d;
+            return (n.hasAttribute(a)) ? n.attributes[a].value.toString() : d;
         },
 
 
