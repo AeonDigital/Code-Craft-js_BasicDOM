@@ -531,7 +531,7 @@ var BasicDOM = function () {
                         setF = !tf.hasAttribute('data-autosetcolgroup-ignore');
                     }
 
-                    SetColGroup(t, setH, setF);
+                    p.SetColGroup(t, setH, setF);
                 }
             }
         },
