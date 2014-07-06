@@ -14,13 +14,20 @@
 
 
 
+// --------------------
+// Caso não exista, inicia objeto CodeCraft
+var CodeCraft = (CodeCraft || function () { });
+if(typeof(CodeCraft) === 'function') { CodeCraft = new CodeCraft(); };
+
+
+
 
 
 
 /**
-* Métodos básicos para manipulação de objetos DOM.
+* Métodos versáteis para inúmeras aplicações.
 *
-* @class BasicDOM
+* @class BasicTools
 *
 * @memberof CodeCraft
 *
@@ -28,7 +35,7 @@
 *
 * @type {Class}
 */
-var BasicDOM = function () {
+CodeCraft.BasicDOM = new (function () {
     var _bt = CodeCraft.BasicTools;
 
 
@@ -729,22 +736,4 @@ var BasicDOM = function () {
 
 
     return p;
-};
-
-
-
-
-
-
-
-
-
-// --------------------
-// Caso não exista, inicia objeto CodeCraft
-var CodeCraft = (CodeCraft || function () { });
-if(typeof(CodeCraft) === 'function') { CodeCraft = new CodeCraft(); };
-
-
-
-// Associa o novo objeto ao "CodeCraft"
-CodeCraft.BasicDOM = new BasicDOM();
+});
