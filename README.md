@@ -61,7 +61,7 @@ e seus elementos.
 
 As seguintes bibliotecas são necessárias :
 
-* `BasicTools`
+* [BasicTools](http://github.com/AeonDigital/Code-Craft-js_BasicTools)
 
 
 **Importante**
