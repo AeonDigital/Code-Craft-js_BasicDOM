@@ -57,6 +57,13 @@ e seus elementos.
 * `AutoSetRules.SetLabelledBy`      : Set dinamico para o atributo 'aria-labelledby'.
 
 
+#### Dependências
+
+As seguintes bibliotecas são necessárias :
+
+* `BasicTools`
+
+
 **Importante**
 
 Tenha em mente que em algumas vezes, neste e em outros projetos **Code Craft** optou-se de forma consciênte em 
