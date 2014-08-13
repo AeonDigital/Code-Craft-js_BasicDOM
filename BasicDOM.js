@@ -5,10 +5,10 @@
 * @module BasicDOM
 * @file Micro DOM Handlers.
 *
+* @requires BasicTools
+*
 * @author Rianna Cantarelli <rianna.aeon@gmail.com>
 */
-
-
 
 
 
@@ -23,11 +23,10 @@ if(typeof(CodeCraft) === 'function') { CodeCraft = new CodeCraft(); };
 
 
 
-
 /**
 * Métodos versáteis para inúmeras aplicações.
 *
-* @class BasicTools
+* @class BasicDOM
 *
 * @memberof CodeCraft
 *
