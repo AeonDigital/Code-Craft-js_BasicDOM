@@ -46,6 +46,7 @@ e seus elementos.
 ### Manipuladores de Eventos.
 
 * `SetEvent`                        : Associa o evento indicado garantindo que o evento não seja duplicado para o manipulador informado.
+* `RemoveEvent`                     : Remove o evento indicado do manipulador do objeto alvo.
 
 
 ### Manipuladores de elementos complexos.

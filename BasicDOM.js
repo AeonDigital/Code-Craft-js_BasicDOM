@@ -390,6 +390,27 @@ CodeCraft.BasicDOM = new (function () {
 
 
 
+        /**
+        * Remove o evento indicado do manipulador do objeto alvo.
+        * Este método funciona apenas com funções nomeadas.
+        *
+        * @function RemoveEvent
+        *
+        * @memberof BasicDOM
+        *
+        * @param {Node}             n           Elemento que perderá o evento.
+        * @param {String}           e           Manipulador do evento [click | blur | mouseover].
+        * @param {Function}         f           Função do evento que será removido.
+        */
+        RemoveEvent: function (n, e, f) {
+            n.removeEventListener(e, f, false);
+        },
+
+
+
+
+
+
 
 
 
