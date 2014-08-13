@@ -43,6 +43,11 @@ e seus elementos.
 * `GetBooleanAttr`                  : Retorna o valor do atributo de um elemento em formato booleano.
 
 
+### Manipuladores de Eventos.
+
+* `SetEvent`                        : Associa o evento indicado garantindo que o evento não seja duplicado para o manipulador informado.
+
+
 ### Manipuladores de elementos complexos.
 
 * `ConvertStringToDOMElement`       : Converte uma string em um objeto DOM.

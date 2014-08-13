@@ -156,7 +156,7 @@ CodeCraft.BasicDOM = new (function () {
                 // Havendo set de eventos
                 if (typeof (c.event) !== 'undefined') {
                     for (var ii in c.event) {
-                        o[it].addEventListener(ii, c.event[ii], false);
+                        p.SetEvent(o[it], ii, c.event[ii]);
                     }
                 }
             }
@@ -354,6 +354,38 @@ CodeCraft.BasicDOM = new (function () {
             return _bt.TryParse.ToBoolean(p.GetAttr(n, a, d));
         },
 
+
+
+
+
+
+
+
+
+
+        // -------------------------------------
+        // MANIPULADORES DE EVENTOS
+
+
+
+        /**
+        * Associa o evento indicado ao manipulador do objeto alvo.
+        * Garante que o evento não seja adicionado mais de 1 vez ao mesmo objeto.
+        * Para o correto funcionamento não use funções anonimas e sim objetos nomeados.
+        * Isto permite garantir que apenas 1 evento será definido para aquele objeto naquele manipulador.
+        * 
+        * @function SetEvent
+        *
+        * @memberof BasicDOM
+        *
+        * @param {Node}             n           Elemento que ganhará o evento.
+        * @param {String}           e           Manipulador do evento [click | blur | mouseover].
+        * @param {Function}         f           Função do evento que será adicionado.
+        */
+        SetEvent: function (n, e, f) {
+            n.removeEventListener(e, f, false);
+            n.addEventListener(e, f, false);
+        },
 
 
 
