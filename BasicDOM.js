@@ -627,7 +627,7 @@ CodeCraft.BasicDOM = new (function () {
             * O objeto deve ser um JSON onde :
             *
             * "key"     : deve ser um seletor CSS indicando quais objetos devem ser setados.
-            * "value"   : { 'propriedade wai-aria' : 'valor ou evento(key[i])' }
+            * "value"   : { 'propriedade' : 'valor ou evento(key[i])' }
             *
             * @memberof AutoSetRules
             *
@@ -703,11 +703,11 @@ CodeCraft.BasicDOM = new (function () {
                                 for (var attr in rl) {
                                     var v = rl[attr];
 
-                                    // Remove o atributo aria
+                                    // Remove o atributo
                                     if (v === null) {
                                         el.removeAttribute(attr);
                                     }
-                                    else if (_bt.TypeOf(v) === '[object String]') {
+                                    else if (_bt.IsString(v)) {
                                         el.setAttribute(attr, v);
                                     }
                                     else {
