@@ -255,7 +255,7 @@ CodeCraft.BasicDOM = new (function () {
         * @param {String|String[]}  a           Classes que serão adicionadas.
         */
         AddClass: function (n, a) {
-            SetClass(n, a, null);
+            p.SetClass(n, a, null);
         },
 
 
@@ -272,7 +272,7 @@ CodeCraft.BasicDOM = new (function () {
         * @param {String|String[]}  r           Classes que serão removidas.
         */
         RemoveClass: function (n, r) {
-            SetClass(n, null, r);
+            p.SetClass(n, null, r);
         },
 
 
