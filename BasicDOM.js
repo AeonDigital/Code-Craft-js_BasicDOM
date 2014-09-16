@@ -437,13 +437,13 @@ CodeCraft.BasicDOM = new (function () {
         CreateElement : function (tag, text, attrs) {
             var n = document.createElement(tag);
 
-            if (attrs != undefined) {
+            if (attrs != undefined && attrs != null) {
                 for (var it in attrs) {
                     n.setAttribute(it, attrs[it]);
                 }
             }
 
-            if (text != undefined) {
+            if (text != undefined && attrs != null) {
                 n.textContent = text;
             }
 
