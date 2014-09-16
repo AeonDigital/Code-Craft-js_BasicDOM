@@ -9,7 +9,7 @@
 *
 * @author Rianna Cantarelli <rianna.aeon@gmail.com>
 */
-
+'use strict';
 
 
 
@@ -635,7 +635,7 @@ CodeCraft.BasicDOM = new (function () {
             *
             * @type {Object}
             */
-            _autoSetRules = {};
+            var _autoSetRules = {};
 
 
 
