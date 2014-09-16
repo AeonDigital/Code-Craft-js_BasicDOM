@@ -422,6 +422,38 @@ CodeCraft.BasicDOM = new (function () {
 
 
         /**
+        * Cria um novo elemento conforme as definições passadas.
+        * 
+        * @function CreateElement
+        *
+        * @memberof BasicDOM
+        *
+        * @paran {String}                   tag                 Nome da tag.
+        * @paran {!String}                  [text]              Texto a ser inserido no node.
+        * @paran {Object}                   [attrs]             Objeto contendo chaves e valores de atributos a serem associados.
+        *
+        * @return {Node}
+        */
+        CreateElement : function (tag, text, attrs) {
+            var n = document.createElement(tag);
+
+            if (attrs != undefined) {
+                for (var it in attrs) {
+                    n.setAttribute(it, attrs[it]);
+                }
+            }
+
+            if (text != undefined) {
+                n.textContent = text;
+            }
+
+            return n;
+        },
+
+
+
+
+        /**
         * Converte uma string em um objeto DOM.
         * 
         * @function ConvertStringToDOMElement

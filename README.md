@@ -51,6 +51,7 @@ e seus elementos.
 
 ### Manipuladores de elementos complexos.
 
+* `CreateElement`                   : Cria um novo elemento conforme as definições passadas.
 * `ConvertStringToDOMElement`       : Converte uma string em um objeto DOM.
 * `SetColGroup`                     : Seta as classes e styles dos elementos "col" de uma tabela em suas respectivas células.
 * `AutoSetColGroup`                 : Automatiza o uso do `SetColGroup` em todas as tabelas da view.
