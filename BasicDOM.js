@@ -474,7 +474,7 @@ CodeCraft.BasicDOM = new (function () {
             ifr.contentDocument.write(s);
             ifr.contentDocument.close();
 
-            var nDOM = ifr.contentDocument.body.firstChild;
+            var nDOM = ifr.contentDocument.body.firstChild.cloneNode(true);
             document.body.removeChild(ifr);
 
             return nDOM;
