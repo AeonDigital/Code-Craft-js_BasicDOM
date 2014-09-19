@@ -588,9 +588,9 @@ CodeCraft.BasicDOM = new (function () {
 
 
         /**
-        * Percorre todas as tabelas do documento em busca do atributo "data-cc-autosetcolgroup".
+        * Percorre todas as tabelas do documento em busca do atributo "data-ccw-autosetcolgroup".
         * Encontrando este atributo, efetua o set automático dos atributos em colgroup.
-        * Elementos "thead" e "tfoot" podem ser marcados com o atributo "data-cc-autosetcolgroup-ignore".
+        * Elementos "thead" e "tfoot" podem ser marcados com o atributo "data-ccw-autosetcolgroup-ignore".
         *
         * @function AutoSetColGroup
         *
@@ -603,7 +603,7 @@ CodeCraft.BasicDOM = new (function () {
             for (var it in aT) {
                 var t = aT[it];
 
-                if (t.hasAttribute('data-cc-autosetcolgroup')) {
+                if (t.hasAttribute('data-ccw-autosetcolgroup')) {
                     var setH = false;
                     var setF = false;
 
@@ -616,10 +616,10 @@ CodeCraft.BasicDOM = new (function () {
 
 
                     if (th != null) {
-                        setH = !th.hasAttribute('data-cc-autosetcolgroup-ignore');
+                        setH = !th.hasAttribute('data-ccw-autosetcolgroup-ignore');
                     }
                     if (tf != null) {
-                        setF = !tf.hasAttribute('data-cc-autosetcolgroup-ignore');
+                        setF = !tf.hasAttribute('data-ccw-autosetcolgroup-ignore');
                     }
 
                     p.SetColGroup(t, setH, setF);
