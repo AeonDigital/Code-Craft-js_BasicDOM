@@ -417,7 +417,7 @@ CodeCraft.BasicDOM = new (function () {
 
 
         // -------------------------------------
-        // MANIPULADORES DE ELEMENTOS COMPLEXOS
+        // MANIPULADORES COMPLEXOS
 
 
 
@@ -434,7 +434,7 @@ CodeCraft.BasicDOM = new (function () {
         *
         * @return {Node}
         */
-        CreateElement : function (tag, text, attrs) {
+        CreateElement: function (tag, text, attrs) {
             var n = document.createElement(tag);
 
             if (attrs != undefined && attrs != null) {
@@ -626,6 +626,45 @@ CodeCraft.BasicDOM = new (function () {
                 }
             }
         },
+
+
+
+
+        /**
+        * Conecta 2 nodes, fazendo com que eventos "hover" em um deles seja reproduzido no outro
+        * atravez da classe CSS .hover
+        *
+        * @function LinkEventHover
+        *
+        * @memberof BasicDOM
+        *
+        * @param {Node}         e                   Elemento cujos eventos "mouseover e mouseout" serão replicados no node alvo.
+        */
+        LinkEventHover: function (e) {
+            var _dom = CodeCraft.BasicDOM;
+
+            var tgt = _dom.Get('#' + e.getAttribute('data-ccw-link-hover'));
+
+            var __event_OnMouseOver = function (o) {
+                _dom.AddClass(_dom.Get('[data-ccw-link-hover="' + o.target.id + '"]')[0], 'hover');
+            };
+            var __event_OnMouseOut = function (o) {
+                _dom.RemoveClass(_dom.Get('[data-ccw-link-hover="' + o.target.id + '"]')[0], 'hover');
+            };
+
+            _dom.SetEvent(tgt, 'mouseover', __event_OnMouseOver);
+            _dom.SetEvent(tgt, 'mouseout', __event_OnMouseOut);
+        },
+
+
+
+
+
+
+
+
+
+
 
 
 

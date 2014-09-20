@@ -55,6 +55,7 @@ e seus elementos.
 * `ConvertStringToDOMElement`       : Converte uma string em um objeto DOM.
 * `SetColGroup`                     : Seta as classes e styles dos elementos "col" de uma tabela em suas respectivas células.
 * `AutoSetColGroup`                 : Automatiza o uso do `SetColGroup` em todas as tabelas da view.
+* `LinkEventHover`                  : Conecta os eventos "mouseover/out" entre 2 elementos.
 
 
 ### Sets automáticos para atributos e inicializador de widgets.
