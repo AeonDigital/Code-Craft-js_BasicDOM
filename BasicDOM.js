@@ -74,7 +74,7 @@ CodeCraft.BasicDOM = new (function () {
 
 
         // -------------------------------------
-        // GET ELEMENTS E SET PROPERTIES
+        // MANIPULADORES DE ELEMENTOS DO DOM
 
 
 
@@ -160,6 +160,54 @@ CodeCraft.BasicDOM = new (function () {
                     }
                 }
             }
+        },
+
+
+
+
+        /**
+        * Retorna o próximo "node irmão" do elemento informado assegurando-se de que é um node tipo 1.
+        * 
+        * @function NextSibling
+        *
+        * @memberof BasicDOM
+        *
+        * @param {Node}             n           Elemento cujo próximo irmão será retornado.
+        *
+        * @return {!Node}
+        */
+        NextSibling: function (n) {
+            n = nextSibling;
+            
+            while(n != null && n.nodeTyle != 1) {
+                n = nextSibling;
+            }
+
+            return n;
+        },
+
+
+
+
+        /**
+        * Retorna o "node irmão" anterior do elemento informado assegurando-se de que é um node tipo 1.
+        * 
+        * @function PreviousSibling
+        *
+        * @memberof BasicDOM
+        *
+        * @param {Node}             n           Elemento cujo irmão anterior será retornado.
+        *
+        * @return {!Node}
+        */
+        PreviousSibling: function (n) {
+            n = previousSibling;
+            
+            while(n != null && n.nodeTyle != 1) {
+                n = previousSibling;
+            }
+
+            return n;
         },
 
 

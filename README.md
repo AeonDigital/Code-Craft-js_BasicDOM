@@ -23,6 +23,8 @@ e seus elementos.
 
 * `Get`                             : Retorna o/s objeto/s indicado/s conforme o seletor CSS informado.
 * `Set`                             : Seta nos objetos encontrados os atributos, classes CSS ou eventos informados.
+* `NextSibling`                     : Retorna o próximo node irmão do elemento informado.
+* `PreviousSibling`                 : Retorna o node irmão anterior do elemento informado.
 
 
 ### Manipuladores de Classes.
