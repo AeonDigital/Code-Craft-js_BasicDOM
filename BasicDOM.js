@@ -179,7 +179,7 @@ CodeCraft.BasicDOM = new (function () {
         NextSibling: function (n) {
             n = n.nextSibling;
             
-            while(n != null && n.nodeTyle != 1) {
+            while(n != null && n.nodeType != 1) {
                 n = n.nextSibling;
             }
 
@@ -203,7 +203,7 @@ CodeCraft.BasicDOM = new (function () {
         PreviousSibling: function (n) {
             n = n.previousSibling;
             
-            while(n != null && n.nodeTyle != 1) {
+            while(n != null && n.nodeType != 1) {
                 n = n.previousSibling;
             }
 
