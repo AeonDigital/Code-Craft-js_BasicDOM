@@ -174,7 +174,7 @@ CodeCraft.BasicDOM = new (function () {
         *
         * @param {Node}             n           Elemento cujo próximo irmão será retornado.
         *
-        * @return {!Node}
+        * @return {?Node}
         */
         NextSibling: function (n) {
             n = n.nextSibling;
@@ -198,7 +198,7 @@ CodeCraft.BasicDOM = new (function () {
         *
         * @param {Node}             n           Elemento cujo irmão anterior será retornado.
         *
-        * @return {!Node}
+        * @return {?Node}
         */
         PreviousSibling: function (n) {
             n = n.previousSibling;
@@ -477,7 +477,7 @@ CodeCraft.BasicDOM = new (function () {
         * @memberof BasicDOM
         *
         * @paran {String}                   tag                 Nome da tag.
-        * @paran {!String}                  [text]              Texto a ser inserido no node.
+        * @paran {String}                   [text]              Texto a ser inserido no node.
         * @paran {Object}                   [attrs]             Objeto contendo chaves e valores de atributos a serem associados.
         *
         * @return {Node}
