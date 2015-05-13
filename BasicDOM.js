@@ -89,7 +89,7 @@ CodeCraft.BasicDOM = new (function () {
         * @param {String}           s           Seletor CSS.
         * @param {Node}             [n]         Node base onde o seletor CSS deve ser aplicado.
         *
-        * @return {!Node[]}
+        * @return {?Node[]}
         */
         Get: function (s, n) {
             var o = (n === undefined) ? document.querySelectorAll(s) : n.querySelectorAll(s);
@@ -106,8 +106,6 @@ CodeCraft.BasicDOM = new (function () {
                 else if (o[0].hasAttribute('id') && lp == '#' + o[0].id) {
                     return o[0];
                 }
-
-                return o;
             }
 
 
