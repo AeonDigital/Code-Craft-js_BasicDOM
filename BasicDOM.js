@@ -99,7 +99,10 @@ CodeCraft.BasicDOM = new (function () {
 
             // Se está procurando por um objeto de Id definido...
             var l = o.length;
-            if (lp.charAt(0) == '#' && l <= 1) {
+            if (l == 0 && lp.charAt(0) != '#') {
+                return null;
+            }
+            else if (l <= 1 && lp.charAt(0) == '#') {
                 if (l == 0) {
                     return document.getElementById(lp.substr(1));
                 }
