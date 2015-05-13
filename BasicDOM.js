@@ -89,24 +89,25 @@ CodeCraft.BasicDOM = new (function () {
         * @param {String}           s           Seletor CSS.
         * @param {Node}             [n]         Node base onde o seletor CSS deve ser aplicado.
         *
-        * @return {?Node[]}
+        * @return {!Node[]}
         */
         Get: function (s, n) {
             var o = (n === undefined) ? document.querySelectorAll(s) : n.querySelectorAll(s);
+            var sp = s.split(' ');
+            var lp = sp[sp.length - 1];
 
+
+            // Se está procurando por um objeto de Id definido...
             var l = o.length;
-            switch (l) {
-                case 0:
-                    return null;
+            if (lp.charAt(0) == '#' && l <= 1) {
+                if (l == 0) {
+                    return document.getElementById(lp.substr(1));
+                }
+                else if (o[0].hasAttribute('id') && lp == '#' + o[0].id) {
+                    return o[0];
+                }
 
-                    break;
-                case 1:
-                    var sp = s.split(' ');
-                    if (o[0].hasAttribute('id') && sp[sp.length - 1] == '#' + o[0].id) {
-                        return o[0];
-                    }
-
-                    break;
+                return o;
             }
 
 
@@ -174,18 +175,18 @@ CodeCraft.BasicDOM = new (function () {
         *
         * @param {Node}             n           Elemento cujo próximo irmão será retornado.
         *
-        * @return {?Node}
+        * @return {!Node}
         */
         NextSibling: function (n) {
             n = n.nextSibling;
-            
-            while(n != null && n.nodeType != 1) {
+
+            while (n != null && n.nodeType != 1) {
                 n = n.nextSibling;
             }
 
             return n;
         },
-        
+
 
 
 
@@ -198,12 +199,12 @@ CodeCraft.BasicDOM = new (function () {
         *
         * @param {Node}             n           Elemento cujo irmão anterior será retornado.
         *
-        * @return {?Node}
+        * @return {!Node}
         */
         PreviousSibling: function (n) {
             n = n.previousSibling;
-            
-            while(n != null && n.nodeType != 1) {
+
+            while (n != null && n.nodeType != 1) {
                 n = n.previousSibling;
             }
 
@@ -477,7 +478,7 @@ CodeCraft.BasicDOM = new (function () {
         * @memberof BasicDOM
         *
         * @paran {String}                   tag                 Nome da tag.
-        * @paran {String}                   [text]              Texto a ser inserido no node.
+        * @paran {!String}                  [text]              Texto a ser inserido no node.
         * @paran {Object}                   [attrs]             Objeto contendo chaves e valores de atributos a serem associados.
         *
         * @return {Node}
