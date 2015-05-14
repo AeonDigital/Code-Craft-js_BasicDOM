@@ -573,6 +573,7 @@ CodeCraft.BasicDOM = new (function () {
             */
             var __setColRules = function (pN) {
                 var aTr = p.Get('tr', pN);
+                
 
                 // Para cada linha filha...
                 for (var r in aTr) {
@@ -591,8 +592,8 @@ CodeCraft.BasicDOM = new (function () {
                             aC += ' ' + p.GetAttr(td, 'class', '');
                             aS += ' ' + p.GetAttr(td, 'style', '');
 
-                            if (aC != ' ') { p.GetAttr(td, 'class', aC); }
-                            if (aS != ' ') { p.GetAttr(td, 'style', aS); }
+                            if (aC != ' ') { td.setAttribute('class', aC); }
+                            if (aS != ' ') { td.setAttribute('style', aS); }
 
                             var cs = p.GetAttr(td, 'colspan', 0);
                             i += parseInt(cs, 10);
@@ -614,7 +615,7 @@ CodeCraft.BasicDOM = new (function () {
 
 
 
-            // Seta regras para o header
+            // Seta regras para o footer
             if (f == true) {
                 var tF = p.Get('tfoot', t);
                 if (tF != null) {
@@ -652,6 +653,7 @@ CodeCraft.BasicDOM = new (function () {
             // Para cada tabela...
             for (var it in aT) {
                 var t = aT[it];
+
 
                 if (t.hasAttribute('data-ccw-autosetcolgroup')) {
                     var setH = false;
