@@ -14,7 +14,7 @@
 
 
 
-// ---------------------
+// --------------------
 // Caso não exista, inicia objeto CodeCraft
 var CodeCraft = (CodeCraft || function () { });
 if(typeof(CodeCraft) === 'function') { CodeCraft = new CodeCraft(); };
@@ -260,10 +260,12 @@ CodeCraft.BasicDOM = new (function () {
         * @param {Node}             n           Node alvo.
         * @param {String|String[]}  a           Classes que serão adicionadas. Use null ou '' para ignorar.
         * @param {String|String[]}  r           Classes que serão removidas. Use null ou '' para ignorar.
+        * @param {Boolean}          [u = false] Quando "true" não permitirá a adição de classes duplicadas.
         */
-        SetClass: function (n, a, r) {
+        SetClass: function (n, a, r, u) {
             var nC = '';
             var allC = n.className.split(' ');
+            u = (u === undefined) ? false : u;
 
             a = (a === null || a === '') ? [] : (typeof (a) === 'string') ? [a] : a;
             r = (r === null || r === '') ? [] : (typeof (r) === 'string') ? [r] : r;
@@ -284,6 +286,17 @@ CodeCraft.BasicDOM = new (function () {
                     // Se a classe não estiver na lista de remoção, adiciona ela
                     if (!rm) { a.push(allC[i]); }
                 }
+            }
+
+
+            // Se permite apenas classe únicas...
+            if (u) {
+                var unique = function (arr) {
+                    return arr.filter(function (x, i) {
+                        return arr.indexOf(x) === i;
+                    })
+                };
+                a = unique(a);
             }
 
             // Para cada classe que deve ser adicionada...
@@ -573,7 +586,7 @@ CodeCraft.BasicDOM = new (function () {
             */
             var __setColRules = function (pN) {
                 var aTr = p.Get('tr', pN);
-                
+
 
                 // Para cada linha filha...
                 for (var r in aTr) {
